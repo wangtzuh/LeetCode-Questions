@@ -2,12 +2,26 @@ import Foundation
 
 public class TreeNode {
     public var value: Int
+    public var val: Int
     public var left: TreeNode?
     public var right: TreeNode?
     public var parent: TreeNode?
     
     public init(value: Int) {
         self.value = value
+        self.val = value
+    }
+    
+    public init(_ value: Int) {
+        self.value = value
+        self.val = value
+    }
+    
+    public init(_ value: Int, _ left: TreeNode?, _ right: TreeNode?) {
+        self.value = value
+        self.val = value
+        self.left = left
+        self.right = right
     }
 }
 
@@ -32,5 +46,22 @@ public extension TreeNode {
             index += 1
         }
         return root
+    }
+}
+
+public class NodeWithNext {
+    public var value: Int
+    public var left: NodeWithNext?
+    public var right: NodeWithNext?
+    public var next: NodeWithNext?
+    
+    public init(value: Int,
+                left: NodeWithNext? = nil,
+                right: NodeWithNext? = nil,
+                next: NodeWithNext? = nil) {
+        self.value = value
+        self.left = left
+        self.right = right
+        self.next = next
     }
 }
